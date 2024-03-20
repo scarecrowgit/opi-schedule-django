@@ -34,13 +34,9 @@ Requires chatId, groupId, degree, studyForm, course in body of Request:
 
 # choices:
 
-degree:
+degree: 'bachelor', 'magister'
 
-'bachelor', 'magister'
-
-studForm:
-
-'full-time', 'part-time'
+studForm: 'full-time', 'part-time'
 
 example:
 
