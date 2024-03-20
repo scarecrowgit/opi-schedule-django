@@ -6,7 +6,7 @@ from .models import modelGroup
 from .serializers import GroupSerializer
 
 @api_view(['POST'])
-def set_group(request):
+def set_data(request):
     serializer = GroupSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
