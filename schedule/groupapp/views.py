@@ -24,3 +24,16 @@ def get_group(request):
             return Response({'error': 'ChatId not found'}, status=status.HTTP_404_NOT_FOUND)
     else:
         return Response({'error': 'ChatId parameter is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def delete_data(request):
+    chat_id = request.query_params.get('chatId')
+    if chat_id:
+        try:
+            group = modelGroup.objects.get(chatId=chat_id)
+            group.delete()
+            return Response({'message': 'Data deleted successfully'}, status=status.HTTP_200_OK)
+        except modelGroup.DoesNotExist:
+            return Response({'error': 'ChatId not found'}, status=status.HTTP_404_NOT_FOUND)
+    else:
+        return Response({'error': 'ChatId parameter is required'}, status=status.HTTP_400_BAD_REQUEST)
