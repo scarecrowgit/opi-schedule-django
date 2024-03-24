@@ -27,16 +27,26 @@ python manage.py runserver
 
 <h2>APIs</h2>
 
-api/set_group:
+api/set_data:
 Method: POST
 
-Requires chatId and groupId in body of Request:
+Requires chatId, groupId, degree, studyForm, course in body of Request:
 
+# choices:
+
+degree: 'bachelor', 'magister'
+
+studForm: 'full-time', 'part-time'
+
+example:
 
 ```
 {
-  "chatId": "123",
-  "groupId": "321"
+  "chatId": "test_chatId",
+  "groupId": "test_groupId",
+  "degree": "bachelor",
+  "studyForm": "full-time",
+  "course": 1
 }
 ```
 
@@ -47,4 +57,14 @@ Requires chatId in get request:
 
 ```
 http://127.0.0.1:8000/api/get_group/?chatId=123
+```
+
+
+
+api/delete_data:
+Method: GET
+Requires chatId in get request:
+
+```
+http://127.0.0.1:8000/api/delete_group/?chatId=123
 ```
